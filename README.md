@@ -1,71 +1,70 @@
-# my-copy-context README
+# 🚀 AI Context Weaver
 
-This is the README for your extension "my-copy-context". After writing up a brief description, we recommend including the following sections.
+**AI Context Weaver** é a ferramenta definitiva para desenvolvedores que utilizam LLMs (ChatGPT, Claude, Gemini). Ela lê o arquivo aberto, resolve todos os seus imports locais (incluindo path aliases) e gera um arquivo Markdown ultra-compactado pronto para ser colado no seu chat de IA.
 
-## Features
+## ✨ Funcionalidades
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+* **📦 Resolução Inteligente de Imports**: Identifica e busca o conteúdo de arquivos `.ts`, `.tsx`, `.js` e `.jsx` importados.
+* **🔗 Suporte a Path Aliases**: Lê seu `tsconfig.json` ou `jsconfig.json` para resolver caminhos como `@/components/*`.
+* **📉 Otimização de Tokens**:
+* Remove comentários e linhas em branco.
+* Minifica o código para reduzir o consumo de tokens.
+* Mantém referências externas (CSS, JSON) apenas como nomes de arquivos para economizar espaço.
 
-For example if there is an image subfolder under your extension project workspace:
 
-\!\[feature X\]\(images/feature-x.png\)
+* **📜 Versionamento Automático**: Cria um histórico de versões em `/code_docs` com um `index.md` para fácil navegação.
+* **🔄 Detecção de Mudanças**: Só cria uma nova versão se o conteúdo gerado for diferente da última.
+* **📋 Clipboard Instantâneo**: Copia o Markdown final automaticamente para sua área de transferência.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## ⌨️ Atalhos de Teclado
 
-## Requirements
+| Comando | Atalho (Windows/Linux) | Atalho (Mac) |
+| --- | --- | --- |
+| **Gerar Contexto Compacto** | `Ctrl+Shift+Alt+M` | `Cmd+Shift+Alt+M` |
+| **Ver Lista de Versões** | `Ctrl+Shift+Alt+L` | `Cmd+Shift+Alt+L` |
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## 🖱️ Como Usar
 
-## Extension Settings
+1. **Pelo Explorer**: Clique com o botão direito em qualquer arquivo de código na barra lateral e selecione `Gerar Markdown Compacto para IA`.
+2. **Pelo Editor**: Clique com o botão direito dentro do código ou use o atalho de teclado.
+3. **Visualização**: Use o atalho `Ctrl+Shift+Alt+L` para abrir o índice de versões e navegar pelos contextos gerados anteriormente.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## 📂 Estrutura de Arquivos Gerada
 
-For example:
+A extensão cria uma pasta `code_docs` na raiz do seu projeto:
 
-This extension contributes the following settings:
+```text
+projeto/
+├── code_docs/
+│   ├── index.md        <-- Lista de todas as versões geradas
+│   ├── v1.md           <-- Contexto da versão 1
+│   └── v2.md           <-- Contexto da versão 2
+└── src/
+    └── ...
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+```
 
-## Known Issues
+## 🛠️ Configurações Suportadas
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+A extensão respeita automaticamente as configurações de:
 
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+* `compilerOptions.baseUrl`
+* `compilerOptions.paths` (Aliases)
 
 ---
 
-## Following extension guidelines
+> **Dica de Pro**: Adicione a pasta `code_docs/` ao seu `.gitignore` para manter seu repositório limpo enquanto mantém seus contextos organizados localmente.
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+---
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+### 📦 Como instalar localmente (VSIX)
 
-## Working with Markdown
+Se você quiser gerar o instalador para o seu VS Code:
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+1. Instale o gerenciador: `npm install -g @vscode/vsce`
+2. Gere o pacote: `vsce package`
+3. No VS Code, vá em extensões -> `...` (três pontos) -> `Install from VSIX...`
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+---
 
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+**Gostaria que eu fizesse alguma alteração no nome da extensão ou adicionasse alguma seção extra de suporte?**
